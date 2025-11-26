@@ -1,6 +1,6 @@
 Smart Waste Collection Management System (GIKI Campus)
 
-📄 **Project Overview**
+**Project Overview**
 
 This project is an Agent-Based Simulation (ABS) developed for the Ghulam Ishaq Khan Institute (GIKI) campus. It models an intelligent, IoT-enabled waste management system designed to replace traditional static collection routes.
 
@@ -9,15 +9,14 @@ The simulation demonstrates how "Smart Bins" equipped with fill-level sensors ca
 Course: CE413 - Computer Communication and Networking
 Institution: GIKI (Ghulam Ishaq Khan Institute of Engineering Sciences and Technology)
 
-🚀 **Key Features**
+**Key Features**
+1) GIS Integration: Built on a real-world OpenStreetMap layout of the GIKI Topi campus, featuring custom-defined routing for realistic truck movement.
 
-🌍 GIS Integration: Built on a real-world OpenStreetMap layout of the GIKI Topi campus, featuring custom-defined routing for realistic truck movement.
+2) IoT Smart Bins: Agents that stochastically generate waste and wirelessly trigger "pickup requests" only when a threshold (80%) is reached.
 
-🤖 IoT Smart Bins: Agents that stochastically generate waste and wirelessly trigger "pickup requests" only when a threshold (80%) is reached.
+3) Autonomous Fleet: Garbage trucks that remain idle at the central depot (Auditorium) until dispatched, servicing specific requests and returning to base to conserve energy.
 
-🚚 Autonomous Fleet: Garbage trucks that remain idle at the central depot (Auditorium) until dispatched, servicing specific requests and returning to base to conserve energy.
-
-📊 Real-Time Dashboard: A live analytics panel tracking:
+4) Real-Time Dashboard: A live analytics panel tracking:
 
 Total Distance Traveled (Efficiency KPI)
 
@@ -25,7 +24,7 @@ CO2 Emissions (Sustainability KPI)
 
 Live Waste Levels (Bar Chart)
 
-🛠️ **Technologies Used**
+ **Technologies Used**
 
 Simulation Platform: AnyLogic (PLE Edition 8.9+)
 
@@ -33,7 +32,7 @@ Logic: Java (Statecharts, Events, Agent Communication)
 
 Mapping: OpenStreetMap (GIS)
 
-⚙️ **Installation & Usage**
+ **Installation & Usage**
 
 Prerequisites
 
@@ -58,7 +57,7 @@ Click the Green Play button ▶ in the toolbar.
 
 When the simulation window opens, click Run.
 
-🧠 **Logic & Architecture**
+**Logic & Architecture**
 
 1. The "Smart Bin" Agent
 
