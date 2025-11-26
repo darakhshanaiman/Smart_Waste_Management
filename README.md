@@ -1,89 +1,88 @@
-**1. Project Description**
+Smart Waste Collection Management System (GIKI Campus)
 
-This project is an Agent-Based Simulation built in AnyLogic to model an intelligent waste management system for the GIKI campus. It replaces the traditional "fixed schedule" garbage collection with a dynamic, demand-driven system using IoT-enabled Smart Bins.
+📄 **Project Overview**
 
-**Core Innovation:**
+This project is an Agent-Based Simulation (ABS) developed for the Ghulam Ishaq Khan Institute (GIKI) campus. It models an intelligent, IoT-enabled waste management system designed to replace traditional static collection routes.
 
-Smart Bins: Located at Hostels 1, 5, and the Medical Center. They monitor their own fill levels and wirelessly request pickup only when 80% full.
+The simulation demonstrates how "Smart Bins" equipped with fill-level sensors can communicate with a central fleet of autonomous garbage trucks to optimize routing, reduce fuel consumption, and prevent bin overflows.
 
-Autonomous Trucks: A fleet of 2 trucks stationed at the Auditorium (Main Depot) that automatically dispatch to service requests and return to base to save fuel.
+Course: CE413 - Computer Communication and Networking
+Institution: GIKI (Ghulam Ishaq Khan Institute of Engineering Sciences and Technology)
 
-Real-Time Dashboard: Tracks KPIs including Total Distance Driven (km), CO2 Emissions (kg), and live waste levels.
+🚀 **Key Features**
 
-**2. Features**
+🌍 GIS Integration: Built on a real-world OpenStreetMap layout of the GIKI Topi campus, featuring custom-defined routing for realistic truck movement.
 
-GIS Integration: Uses the real OpenStreetMap layout of GIKI Topi.
+🤖 IoT Smart Bins: Agents that stochastically generate waste and wirelessly trigger "pickup requests" only when a threshold (80%) is reached.
 
-Dynamic Routing: Trucks follow custom-defined GIS routes along campus roads.
+🚚 Autonomous Fleet: Garbage trucks that remain idle at the central depot (Auditorium) until dispatched, servicing specific requests and returning to base to conserve energy.
 
-Logic Statecharts: Implements complex agent behavior (Wait -> Drive -> Collect -> Return).
+📊 Real-Time Dashboard: A live analytics panel tracking:
 
-Optimization: Prevents overflow while minimizing unnecessary truck trips.
+Total Distance Traveled (Efficiency KPI)
 
-3. How to Run the Simulation
+CO2 Emissions (Sustainability KPI)
+
+Live Waste Levels (Bar Chart)
+
+🛠️ **Technologies Used**
+
+Simulation Platform: AnyLogic (PLE Edition 8.9+)
+
+Logic: Java (Statecharts, Events, Agent Communication)
+
+Mapping: OpenStreetMap (GIS)
+
+⚙️ **Installation & Usage**
 
 Prerequisites
 
-AnyLogic PLE (Personal Learning Edition) 8.9 or higher.
+AnyLogic Software: Download and install the Personal Learning Edition (PLE) for free.
 
-Internet connection (to load GIS map tiles).
+Internet Connection: Required for the GIS map to load map tiles during the first run.
 
-Steps
+How to Run
 
-Open AnyLogic.
+Clone this repository or download the source files.
 
-Click File > Open and select Smart_Waste_Management.alp.
+git clone [https://github.com/yourusername/Smart-Waste-Management-GIKI.git](https://github.com/yourusername/Smart-Waste-Management-GIKI.git)
+
+
+Open AnyLogic and select File > Open.
+
+Navigate to the folder and select Smart_Waste_Management.alp.
 
 In the Projects sidebar, click on Simulation: Main.
 
 Click the Green Play button ▶ in the toolbar.
 
-When the window opens, click Run ▶.
+When the simulation window opens, click Run.
 
-User Controls
+🧠 **Logic & Architecture**
 
-Speed Up: Click x10 or Max at the bottom to fast-forward time.
+1. The "Smart Bin" Agent
 
-Watch the Map: Zoom in to see bins turning RED (Full) and Green (Emptied).
+Waste Generation: Simulates student activity by increasing fill level by ~10% every simulation hour.
 
-View Dashboard: The right side of the screen displays live statistics.
+IoT Trigger: When fillLevel >= 80%, the bin enters a "Request State".
 
-**4. Logic & Parameters
-**
-Parameter
+Retry Logic: If no trucks are available, the bin enters a "Nagging Loop," re-sending the request every 10 minutes until serviced.
 
-Value
+2. The "Garbage Truck" Agent
 
-Description
+Statechart Logic:
 
-Waste Generation
+AtDepot: Idle state, waiting for messages.
 
-~10% / hour
+DrivingToBin: Movement via GIS routes to the target hostel.
 
-Simulates daily trash accumulation.
+AtBin: Service state where bin fillLevel is reset to 0.
 
-Threshold
+ReturningToDepot: Return logic to the auditorium.
 
-80%
+Routing: Uses a custom GIS Route network (Blue Lines) to ensure trucks follow campus roads instead of straight-line paths.
 
-Point at which bin triggers a pickup request.
 
-Truck Fleet
+This project is for educational purposes submitted to the Faculty of Computer Science and Engineering at GIKI.
 
-2 Trucks
-
-Located at Main Depot.
-
-Service Time
-
-Instant
-
-Simplified for visual demonstration.
-
-Retry Logic
-
-10 Minutes
-
-Frequency a full bin checks for available trucks.
-
-© 2025 Aiman Darakhshan - GIKI
+Author: Aiman Darakhshan (2022076)
